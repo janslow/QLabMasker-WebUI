@@ -17,6 +17,7 @@
     assertTrue(toTest instanceof Point);
     assertEquals(x, toTest.x);
     assertEquals(y, toTest.y);
+    assertEquals("Point(100, 111)", "" + toTest);
   };
   PointClassTest.prototype.testSetX = function () {
     var toTest = new Point(1,2,[]);

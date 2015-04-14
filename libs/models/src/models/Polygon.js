@@ -24,4 +24,8 @@ var Polygon = function (name, renderMode, points) {
   });
 };
 
+Polygon.prototype.toString = function() {
+  return "Polygon(" + this.name + ")";
+};
+
 module.exports = Polygon;

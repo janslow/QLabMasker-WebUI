@@ -19,6 +19,7 @@
     assertEquals(width, toTest.width);
     assertEquals(height, toTest.height);
     assertEquals(polygons, toTest.polygons);
+    assertEquals("Screen(100x111)", toTest + "");
   };
   ScreenClassTest.prototype.testConstructorWithDefaultPolygons = function () {
     var width = 100;
@@ -30,6 +31,7 @@
     assertEquals(width, toTest.width);
     assertEquals(height, toTest.height);
     assertEquals([], toTest.polygons);
+    assertEquals("Screen(100x111)", toTest + "");
   };
   ScreenClassTest.prototype.testSetWidth = function () {
     var toTest = new Screen(1,2,[]);

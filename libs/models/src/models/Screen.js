@@ -24,4 +24,8 @@ var Screen = function (width, height, polygons) {
   });
 };
 
+Screen.prototype.toString = function() {
+  return "Screen(" + this.width + "x" + this.height + ")";
+};
+
 module.exports = Screen;

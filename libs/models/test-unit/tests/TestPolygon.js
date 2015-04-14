@@ -20,6 +20,7 @@
     assertEquals(name, toTest.name);
     assertEquals(renderMode, toTest.renderMode);
     assertEquals(points, toTest.points);
+    assertEquals("Polygon(foo)", toTest + "");
   };
   PolygonClassTest.prototype.testConstructorWithDefaultPoints = function () {
     var name = "foo";
@@ -31,6 +32,7 @@
     assertEquals(name, toTest.name);
     assertEquals(renderMode, toTest.renderMode);
     assertEquals([], toTest.points);
+    assertEquals("Polygon(foo)", toTest + "");
   };
   PolygonClassTest.prototype.testSetName = function () {
     var toTest = new Polygon("foo",RenderMode.SUBTRACT,[]);

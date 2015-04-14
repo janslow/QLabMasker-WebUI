@@ -13,4 +13,8 @@ var Point = function (x, y) {
   });
 };
 
+Point.prototype.toString = function () {
+  return "Point(" + this.x + ", " + this.y + ")";
+};
+
 module.exports = Point;
