@@ -21,14 +21,24 @@
   PointClassTest.prototype.testSetX = function () {
     var toTest = new Point(1,2,[]);
 
-    toTest.x = 10;
-    assertEquals(10, toTest.x);
+    try {
+      toTest.x = 10;
+      fail("x should not be writable.");
+    } catch (e) {
+    }
+
+    assertEquals(1, toTest.x);
   };
   PointClassTest.prototype.testSetY = function () {
     var toTest = new Point(1,2,[]);
 
-    toTest.y = 10;
-    assertEquals(10, toTest.y);
+    try {
+      toTest.y = 10;
+      fail("y should not be writable.");
+    } catch (e) {
+    }
+
+    assertEquals(2, toTest.y);
   };
 
 }());

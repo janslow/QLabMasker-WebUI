@@ -4,13 +4,11 @@ var Point = function (x, y) {
   Object.defineProperties(this, {
     x: {
       value: x,
-      enumerable: true,
-      writable: true
+      enumerable: true
     },
     y: {
       value: y,
-      enumerable: true,
-      writable: true
+      enumerable: true
     }
   });
 };
