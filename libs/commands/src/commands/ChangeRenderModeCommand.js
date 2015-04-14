@@ -1,6 +1,7 @@
 "use strict";
 
 var Point = require("models/Point");
+var RenderMode = require("models/RenderMode");
 var CanExecuteResultFactory = require("commands/CanExecuteResultFactory");
 
 var ChangeRenderModeCommand = function (screen, polygon, renderMode) {
@@ -21,7 +22,17 @@ var ChangeRenderModeCommand = function (screen, polygon, renderMode) {
 };
 
 ChangeRenderModeCommand.prototype.canExecute = function () {
-  return CanExecuteResultFactory.canExecute(true);
+  var errorMessages = [];
+
+  if (RenderMode.getValues().indexOf(this.renderMode) < 0) {
+    errorMessages += "\"" + this.renderMode + "\" is not a valid render mode; it must be one of the defined modes.";
+  }
+
+  if (errorMessages.length) {
+    return CanExecuteResultFactory.canNotExecute(errorMessages);
+  } else {
+    return CanExecuteResultFactory.canExecute(true);
+  }
 };
 
 ChangeRenderModeCommand.prototype.execute = function () {

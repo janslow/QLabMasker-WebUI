@@ -49,4 +49,38 @@
     assertEquals("Expected correct renderMode in undo command:", originalRenderMode, undoCommand.renderMode);
   };
 
+  function abstractTestCanExecute (renderMode, expectedErrors) {
+    var screen = { width: 100, height: 100 };
+    var polygon = new Polygon("foo", RenderMode.ADD);
+    
+    var command = new ChangeRenderModeCommand(screen, polygon, renderMode);
+
+    var canExecute = command.canExecute();
+
+    if (expectedErrors.length) {
+      assertFalse("Expected not executable:", canExecute.isExecutable);
+      assertFalse("Expected not undoable:", canExecute.isUndoable);
+      assertEquals("Expected error messages:", expectedErrors, canExecute.errorMessages);
+
+      var caughtException = false;
+      try {
+        command.execute();
+      } catch (e) {
+        caughtException = true;
+      }
+      assertTrue("Expected execution to fail; no exception was caught:", caughtException);
+    } else {
+      assertTrue("Expected executable:", canExecute.isExecutable);
+      assertTrue("Expected undoable:", canExecute.isUndoable);
+      assertEquals("Expected no error messages:", [], canExecute.errorMessages);
+      try {
+        command.execute();
+      } catch (e) {
+        fail("Expected successful execution; caught: " + e);
+      }
+    }
+  }
+
+  ChangeRenderModeCommandClassTest.prototype.testCanExecuteValid = abstractTestCanExecute.bind(null, RenderMode.SUBTRACT, []);
+  ChangeRenderModeCommandClassTest.prototype.testCanExecuteInvalid = abstractTestCanExecute.bind(null, "foo", ["\"foo\" is not a valid render mode; it must be one of the defined modes."]);
 }());
