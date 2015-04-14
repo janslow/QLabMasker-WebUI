@@ -27,7 +27,7 @@
   RemovePointCommandClassTest.prototype.testGetDescription = function () {
     var toTest = new RemovePointCommand(null, new Polygon("foo", "foo"), new Point(3,4));
 
-    assertEquals("Remove Point(3, 4) from Polygon(foo)", toTest.getDescription());
+    assertEquals("Remove Point(3, 4) from Polygon(foo).", toTest.getDescription());
   };
 
   RemovePointCommandClassTest.prototype.testExecute = function () {

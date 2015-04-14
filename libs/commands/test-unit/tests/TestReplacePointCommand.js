@@ -28,7 +28,7 @@
   ReplacePointCommandClassTest.prototype.testGetDescription = function () {
     var toTest = new ReplacePointCommand(null, new Polygon("foo", "foo"), new Point(1, 2), 3, 4);
 
-    assertEquals("Replace Point(1, 2) in Polygon(foo) with Point(3, 4)", toTest.getDescription());
+    assertEquals("Replace Point(1, 2) in Polygon(foo) with Point(3, 4).", toTest.getDescription());
   };
 
   ReplacePointCommandClassTest.prototype.testExecute = function () {

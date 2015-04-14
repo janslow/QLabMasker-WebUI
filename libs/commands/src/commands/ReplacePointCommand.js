@@ -56,7 +56,7 @@ ReplacePointCommand.prototype.canExecute = function () {
 
 ReplacePointCommand.prototype.execute = function () {
   if (!this.canExecute().isExecutable) {
-    throw "Command can't be executed";
+    throw "Command can't be executed.";
   }
   var removePointCommand = new RemovePointCommand(this.screen, this.polygon, this.oldPoint);
   var position = removePointCommand.execute().position;
@@ -67,7 +67,7 @@ ReplacePointCommand.prototype.execute = function () {
 };
 
 ReplacePointCommand.prototype.getDescription = function () {
-  return "Replace " + this.oldPoint + " in " + this.polygon + " with " + this.newPoint;
+  return "Replace " + this.oldPoint + " in " + this.polygon + " with " + this.newPoint + ".";
 };
 
 module.exports = ReplacePointCommand;

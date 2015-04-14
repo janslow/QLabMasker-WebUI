@@ -21,15 +21,22 @@ var RemovePointCommand = function (screen, polygon, point, position) {
 };
 
 RemovePointCommand.prototype.canExecute = function () {
+  var errorMessages = [];
+
   if (this.polygon.indexOf(this.point) < 0) {
-    return CanExecuteResultFactory.canNotExecute("Can't find " + this.point + " in " + this.polygon + "; polygon must contain point to remove.");
+    errorMessages.push("Can't find " + this.point + " in " + this.polygon + "; polygon must contain point to remove.");
   }
-  return CanExecuteResultFactory.canExecute(true);
+
+  if (errorMessages.length) {
+    return CanExecuteResultFactory.canNotExecute(errorMessages);
+  } else {
+    return CanExecuteResultFactory.canExecute(true);
+  }
 };
 
 RemovePointCommand.prototype.execute = function () {
   if (!this.canExecute().isExecutable) {
-    throw "Command can't be executed";
+    throw "Command can't be executed.";
   }
   
   var position = this.polygon.indexOf(this.point);
@@ -40,7 +47,7 @@ RemovePointCommand.prototype.execute = function () {
 };
 
 RemovePointCommand.prototype.getDescription = function () {
-  return "Remove " + this.point + " from " + this.polygon;
+  return "Remove " + this.point + " from " + this.polygon + ".";
 };
 
 module.exports = RemovePointCommand;
