@@ -24,6 +24,15 @@ var Polygon = function (name, renderMode, points) {
   });
 };
 
+Polygon.prototype.indexOf = function(point) {
+  for (var i = this.points.length - 1; i >= 0; i--) {
+    var p = this.points[i];
+    if (point.x == p.x && point.y == p.y) {
+      return i;
+    }
+  };
+  return -1;
+};
 Polygon.prototype.toString = function() {
   return "Polygon(" + this.name + ")";
 };
