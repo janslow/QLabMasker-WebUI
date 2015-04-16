@@ -1,5 +1,5 @@
 (function(){
-  'use strict';
+  "use strict";
   
   var InsertPointCommandClassTest = TestCase("InsertPointCommandClassTest");
   
@@ -30,7 +30,7 @@
   InsertPointCommandClassTest.prototype.testGetDescription = function () {
     var toTest = new InsertPointCommand(null, new Polygon("foo", "foo"), 11, 13, 17);
 
-    assertEquals("Add Point(11, 13) to Polygon(foo)", toTest.getDescription());
+    assertEquals("Add Point(11, 13) to Polygon(foo).", toTest.getDescription());
   };
 
   function abstractTestExecution(position) {

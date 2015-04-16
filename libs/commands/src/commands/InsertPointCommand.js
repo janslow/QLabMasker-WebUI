@@ -50,7 +50,7 @@ InsertPointCommand.prototype.canExecute = function () {
 
 InsertPointCommand.prototype.execute = function () {
   if (!this.canExecute().isExecutable) {
-    throw "Command can't be executed";
+    throw "Command can't be executed.";
   }
   this.polygon.points.splice(this.position, 0, this.point);
 
@@ -59,7 +59,7 @@ InsertPointCommand.prototype.execute = function () {
 };
 
 InsertPointCommand.prototype.getDescription = function () {
-  return "Add " + this.point + " to " + this.polygon;
+  return "Add " + this.point + " to " + this.polygon + ".";
 };
 InsertPointCommand.prototype.toString = function () {
   return "InsertPointCommand(" + this.screen + ", " + this.polygon + ", " + this.point + " @ " + this.position + ")";
