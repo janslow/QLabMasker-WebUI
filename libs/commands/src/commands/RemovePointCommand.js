@@ -3,7 +3,7 @@
 var Point = require("models/Point");
 var CanExecuteResultFactory = require("commands/CanExecuteResultFactory");
 
-var RemovePointCommand = function (screen, polygon, point, position) {
+var RemovePointCommand = function (screen, polygon, point) {
   Object.defineProperties(this, {
     screen: {
       value: screen,
