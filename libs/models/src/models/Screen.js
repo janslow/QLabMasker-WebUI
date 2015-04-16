@@ -24,6 +24,15 @@ var Screen = function (width, height, polygons) {
   });
 };
 
+Screen.prototype.indexOf = function(polygon) {
+  for (var i = this.polygons.length - 1; i >= 0; i--) {
+    var p = this.polygons[i];
+    if (polygon.name == p.name) {
+      return i;
+    }
+  };
+  return -1;
+};
 Screen.prototype.toString = function() {
   return "Screen(" + this.width + "x" + this.height + ")";
 };
